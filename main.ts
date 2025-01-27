@@ -1,5 +1,5 @@
-import { serveDir } from "@std/http";
-import { renderFileToString, Params } from "@hongminhee/dejs";
+import { serveDir } from "https://deno.land/std@0.175.0/http/file_server.ts";
+import { renderFileToString, Params } from "https://deno.land/x/dejs@0.10.0/mod.ts";
 
 const BASE_URL = "public"; // 静态资源根路径
 
