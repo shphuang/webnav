@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --allow-read --allow-net --allow-env --allow-run --watch main.ts"
+    "dev": "deno run --allow-all --watch main.ts"
   },
   "imports": {
     "@hongminhee/dejs": "jsr:@hongminhee/dejs@^0.10.5+jsr.1",
