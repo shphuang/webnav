@@ -1,3 +1,0 @@
-```shell
-deno task dev
-```
