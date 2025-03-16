@@ -1,5 +1,4 @@
-import app from "./src/app.ts";
-import { APP_CONFIG } from "./src/config/app.ts";
+import { bootstrap } from './src/bootstrap.ts';
 
-// 启动服务器
-await app.listen({ port: APP_CONFIG.port, hostname: APP_CONFIG.host });
+const application = await bootstrap();
+await application.listen(Number(Deno.env.get('PORT') || 3000));
