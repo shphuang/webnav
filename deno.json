@@ -17,7 +17,7 @@
   },
   "imports": {
     "@danet/core": "jsr:@danet/core@2",
-    "@danet/render": "https://deno.land/x/danet@2.4.1/src/renderer/decorator.ts",
+    "@danet/render": "https://jsr.io/@danet/core/2.4.3/src/renderer/decorator.ts",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.3",
     "@db/mongo": "jsr:@db/mongo@0.33.0",
     "@bartlomieju/postgres": "jsr:@bartlomieju/postgres",
