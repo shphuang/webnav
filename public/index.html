@@ -1,14 +1,90 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue</title>
-    <script type="module" crossorigin src="/assets/index-BuZGnQTp.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CjwFQBOa.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站导航</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧分类栏 -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>网站导航</h2>
+            </div>
+            <div class="category-list">
+                <!-- 分类列表将通过JavaScript动态生成 -->
+            </div>
+            <div class="add-category">
+                <button id="addCategoryBtn"><i class="fas fa-plus"></i> 添加分类</button>
+            </div>
+        </div>
+
+        <!-- 右侧内容区域 -->
+        <div class="main-content">
+            <!-- 顶部搜索区域 -->
+            <div class="search-area">
+                <div class="search-container">
+                    <div class="search-engine-selector">
+                        <span id="currentEngine">Bing</span>
+                        <i class="fas fa-caret-down"></i>
+                        <div class="dropdown-content">
+                            <a href="#" data-engine="bing">Bing</a>
+                            <a href="#" data-engine="google">Google</a>
+                            <a href="#" data-engine="baidu">百度</a>
+                        </div>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="输入搜索关键词...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- 内容展示区域 -->
+            <div class="content-area">
+                <div class="category-content">
+                    <!-- 分类内容将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加分类的模态框 -->
+    <div id="addCategoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>添加新分类</h2>
+            <input type="text" id="newCategoryName" placeholder="输入分类名称">
+            <button id="saveCategoryBtn">保存</button>
+        </div>
+    </div>
+
+    <!-- 添加网址的模态框 -->
+    <div id="addSiteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>添加新网址</h2>
+            <input type="text" id="newSiteName" placeholder="网站名称">
+            <input type="text" id="newSiteUrl" placeholder="网站URL (以http://或https://开头)">
+            <input type="text" id="newSiteDesc" placeholder="网站描述 (可选)">
+            <button id="saveSiteBtn">保存</button>
+        </div>
+    </div>
+
+    <!-- 编辑网站的模态框 -->
+    <div id="editSiteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>编辑网站</h2>
+            <input type="text" id="editSiteName" placeholder="网站名称">
+            <input type="text" id="editSiteUrl" placeholder="网站URL (以http://或https://开头)">
+            <input type="text" id="editSiteDesc" placeholder="网站描述 (可选)">
+            <input type="hidden" id="editSiteId">
+            <button id="updateSiteBtn">更新</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
