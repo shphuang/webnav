@@ -1,5 +1,5 @@
 import { Controller, Get } from '@danet/core';
-import { Render } from 'https://jsr.io/@danet/core/2.4.3/src/renderer/decorator.ts';
+import { Render } from '@danet/render';
 
 @Controller('/api')
 export class AppController {
