@@ -232,18 +232,28 @@ body {
     font-size: 14px;
 }
 
-.site-actions {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.site-card:hover .site-actions {
+    display: flex;
 }
 
-.site-card:hover .site-actions {
-    opacity: 1;
+.site-actions {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px;
+}
+
+.site-actions .el-icon {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.site-actions .el-icon:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .site-actions i {
     cursor: pointer;
-    padding: 5px;
     color: #666;
     transition: color 0.3s;
 }

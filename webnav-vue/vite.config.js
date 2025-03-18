@@ -17,5 +17,10 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    outDir: '../public',
+    assetsDir: 'assets',
+    emptyOutDir: true
   }
 })

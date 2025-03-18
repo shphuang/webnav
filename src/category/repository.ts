@@ -16,6 +16,11 @@ export class CategoryRepository implements Repository<Category> {
     this.categories.push(newCategory);
     return newCategory;
   }
+
+  async updateAll(categories: Category[]) {
+    this.categories = categories;
+  }
+
   async updateOne(id: string, dto: Category) {
     this.categories.forEach((t: Category) => {
       if (t.id === parseInt(id)) {

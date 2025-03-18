@@ -7,6 +7,24 @@ const handleRequestError = (error) => {
     throw error
 }
 
+export const userApi = {
+    // 更新用户信息
+    updateUser: async (user) => {
+        try {
+            const res = await fetch(`${API_BASE_URL}/users/shphuang`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            return await res.json()
+        } catch (error) {
+            handleRequestError(error)
+        }
+    }
+}
+
 // 分类相关API
 export const categoryApi = {
     // 获取所有分类

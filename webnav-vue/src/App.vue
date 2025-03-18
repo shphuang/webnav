@@ -57,7 +57,6 @@
             <div class="site-info">
               <h3>{{ site.name }}</h3>
               <p>{{ site.description || '暂无描述' }}</p>
-              <p>{{ new Date() }}</p>
             </div>
             <div class="site-actions">
               <el-icon style="font-size: 20px" @click="showEditSiteModal(site)" title="编辑">
@@ -182,7 +181,6 @@ const deleteCategory = async (id) => {
 
 const saveSite = async (siteData) => {
   try {
-    debugger
     await store.saveSite(siteData)
     hideSiteModal()
   } catch (error) {
