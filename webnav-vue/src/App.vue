@@ -1,5 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container" :class="{ 'sidebar-collapsed': isSidebarCollapsed }">
+    <div class="mobile-sidebar-toggle" @click="toggleSidebar">
+      <el-icon>
+        <Fold v-if="!isSidebarCollapsed" />
+        <Expand v-else />
+      </el-icon>
+    </div>
     <!-- 左侧分类栏 -->
     <div class="sidebar">
       <div class="logo">
@@ -10,7 +16,7 @@
           :class="{ active: category.id === store.currentCategoryId }" @click="selectCategory(category.id)">
           <span>{{ category.name }}</span>
           <!-- <i class="fas fa-trash delete-category" @click.stop="deleteCategory(category.id)"></i> -->
-          <el-icon @click.stop="deleteCategory(category.id)">
+          <el-icon class="icon" @click.stop="deleteCategory(category.id)">
             <Delete />
           </el-icon>
         </div>
@@ -88,6 +94,21 @@ import { onMounted, ref } from 'vue'
 import CategoryModal from '@/components/CategoryModal.vue'
 import SiteModal from '@/components/SiteModal.vue'
 import { useMainStore } from '@/stores'
+
+const isSidebarCollapsed = ref(window.innerWidth <= 768)
+
+const toggleSidebar = () => {
+  isSidebarCollapsed.value = !isSidebarCollapsed.value
+}
+
+// 监听窗口大小变化
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    isSidebarCollapsed.value = false
+  } else if (window.innerWidth <= 768 && !isSidebarCollapsed.value) {
+    isSidebarCollapsed.value = true
+  }
+})
 
 const store = useMainStore()
 const searchQuery = ref('')
@@ -293,4 +314,98 @@ const drop = async (event, targetSite) => {
 
 <style>
 @import '@/assets/styles.css';
+
+/* 响应式布局样式 */
+.mobile-sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background-color: rgba(33, 33, 33, 0.9);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    position: relative;
+  }
+
+  .mobile-sidebar-toggle {
+    display: block;
+    z-index: 1201;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1200;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-collapsed .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .main-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 10px;
+  }
+
+  .search-container {
+    flex-direction: row;
+    border-radius: 15px;
+  }
+
+  .search-engine-selector {
+    width: auto;
+    min-width: 100px;
+    border-radius: 15px 0 0 15px;
+    border-right: 1px solid #eee;
+    border-bottom: none;
+    padding: 0 15px;
+  }
+
+  .search-container input {
+    width: auto;
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 0;
+  }
+
+  .search-container button {
+    width: auto;
+    padding: 12px 15px;
+    border-radius: 0 15px 15px 0;
+  }
+
+  .category-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .site-card {
+    margin: 0;
+  }
+
+  .site-actions {
+    opacity: 1;
+  }
+
+  .add-site-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+}
 </style>
