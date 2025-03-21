@@ -7,6 +7,18 @@ const handleRequestError = (error) => {
     throw error
 }
 
+export const AppApi = {
+    getIconUrl:async (url) => {
+        try {
+            const res = await fetch(`${API_BASE_URL}/icon?url=${url}`)
+            return await res.text()
+        } catch (error) {
+            handleRequestError(error)
+        }
+    },
+   
+}
+
 export const userApi = {
     // 更新用户信息
     updateUser: async (user) => {

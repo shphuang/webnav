@@ -57,9 +57,7 @@
           <div v-for="site in store.currentSites" :key="site.id" class="site-card" draggable="true"
             @dragstart="dragStart($event, site)" @dragend="dragEnd" @dragover.prevent @drop="drop($event, site)"
             @dblclick="openSite(site)">
-            <div class="site-icon">
-              <img :src="`https://www.google.com/s2/favicons?domain=${site.url}&sz=128`" :alt="`${site.name} icon`">
-            </div>
+            <SiteIcon :url="site.url" :name="site.name" />
             <div class="site-info">
               <h3>{{ site.name }}</h3>
               <p>{{ site.description || '暂无描述' }}</p>
@@ -94,6 +92,7 @@ import { onMounted, ref } from 'vue'
 import CategoryModal from '@/components/CategoryModal.vue'
 import SiteModal from '@/components/SiteModal.vue'
 import { useMainStore } from '@/stores'
+import SiteIcon from "@/components/SiteIcon.vue";
 
 const isSidebarCollapsed = ref(window.innerWidth <= 768)
 

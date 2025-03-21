@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@b-fuze/deno-dom@~0.1.49": "0.1.49",
     "jsr:@bartlomieju/postgres@*": "0.17.2",
     "jsr:@danet/core@2": "2.4.3",
     "jsr:@danet/core@2.4.3": "2.4.3",
@@ -41,6 +42,9 @@
     "npm:path-to-regexp@6.2.1": "6.2.1"
   },
   "jsr": {
+    "@b-fuze/deno-dom@0.1.49": {
+      "integrity": "45c40175fdd1e74ab2d4b54c4fdaabbad6e5b76ee28df12a48e076b3fa7901a9"
+    },
     "@bartlomieju/postgres@0.17.2": {
       "integrity": "e31842f98fbc37e5be2fc6248baf482307e8edce53cee07fb27a7d644cdacfe2",
       "dependencies": [
@@ -440,6 +444,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@b-fuze/deno-dom@~0.1.49",
       "jsr:@bartlomieju/postgres@*",
       "jsr:@danet/core@2",
       "jsr:@danet/swagger@2",
