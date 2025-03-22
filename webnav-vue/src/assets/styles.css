@@ -192,6 +192,7 @@ body {
 
 .site-card {
     background-color: white;
+    border: 1px solid rgb(66 133 244 / 19%);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;

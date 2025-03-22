@@ -371,7 +371,7 @@ const drop = async (event, targetSite) => {
   }
 
   .search-container input {
-    width: auto;
+    width: 190px;
     flex: 1;
     padding: 12px 15px;
     border-radius: 0;
