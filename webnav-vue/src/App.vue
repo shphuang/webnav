@@ -318,8 +318,6 @@ const drop = async (event, targetSite) => {
 .mobile-sidebar-toggle {
   display: none;
   position: fixed;
-  top: 10px;
-  left: 10px;
   z-index: 1000;
   background-color: rgba(33, 33, 33, 0.9);
   color: white;
@@ -388,8 +386,8 @@ const drop = async (event, targetSite) => {
   .category-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 15px;
-    padding: 15px;
+    row-gap: 15px;
+    padding: 0;
   }
 
   .site-card {
